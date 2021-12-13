@@ -37,7 +37,7 @@ jobs:
         pipenv run flake8 .
     - name: Test with pytest
       run: |
-        pipenv run pytest curso-django --cov=curso-django
+        pipenv run pytest pythonpro --cov=curso-pythonpro
     - name: Posting Coverage
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
