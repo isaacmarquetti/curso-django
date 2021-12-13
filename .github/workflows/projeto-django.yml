@@ -24,13 +24,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: 3.8
-    - name: Copying configurations
-      run: |
-        cp contrib/env-sample .env
+        python-version: 3.9
     - name: Install dependencies
       run: |
         pip install pipenv
@@ -40,7 +37,7 @@ jobs:
         pipenv run flake8 .
     - name: Test with pytest
       run: |
-        pipenv run pytest pythonpro --cov=pythonpro
+        pipenv run pytest curso-django --cov=curso-django
     - name: Posting Coverage
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
