@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 
 from pypro.base import views
-from pypro.base.views import home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
