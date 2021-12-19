@@ -10,6 +10,8 @@ pytest-django = "*"
 pytest = "*"
 flake8 = "*"
 python-decouple = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 flake8 = "*"
