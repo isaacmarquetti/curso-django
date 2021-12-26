@@ -35,8 +35,6 @@ DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-COLLECTFAST_STRATEGY = 'collectfast.strategies.boto3.Boto3Strategy'
 
 # Application definition
 
@@ -136,6 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
 COLLECTFAST_ENABLE = False
+COLLECTFAST_STRATEGY = 'collectfast.strategies.boto3.Boto3Strategy'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
