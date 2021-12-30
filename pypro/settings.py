@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'pypro.wsgi.application'
 
 # Configuração Django Debug Toolbar
 
-INTERNAL_IPS = config("INTERNAL_IPS", cast=Csv(), default='127.0.0.1')
+INTERNAL_IPS = config('INTERNAL_IPS', cast=Csv(), default='127.0.0.1')
 
 if DEBUG:
     INSTALLED_APPS.append('debug_toolbar')
-    MIDDLEWARE.insert(0, "debug_toolbar.middleware.DebugToolbarMiddleware")
+    MIDDLEWARE.insert(0, 'debug_toolbar.middleware.DebugToolbarMiddleware')
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
@@ -129,29 +129,31 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 # Configuração de ambiente de desenvolvimento
-
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-
-COLLECTFAST_ENABLE = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/3.2/howto/static-files/
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+
+COLLECTFAST_ENABLED = False
+
 AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
 
 # STORAGE CONFIGURATION IN S3 AWS
-# -----------------------------------------------------
+# ------------------------------------------------------------------------------
 
 if AWS_ACCESS_KEY_ID:
     AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
@@ -164,10 +166,10 @@ if AWS_ACCESS_KEY_ID:
     AWS_DEFAULT_ACL = 'private'
 
     COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
-    COLLECTFAST_ENABLE = True
+    COLLECTFAST_ENABLED = True
 
     # Static Assets
-    # ------------------------------------------------------
+    # ------------------------------------------------------------------------------
     STATICFILES_STORAGE = 's3_folder_storage.s3.StaticStorage'
     STATIC_S3_PATH = 'static'
     STATIC_ROOT = f'/{STATIC_S3_PATH}/'
