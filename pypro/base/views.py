@@ -6,4 +6,3 @@ from django.shortcuts import render
 
 def home(request):
     return HttpResponse('<html><body>Olá Django</body></html>')
-
