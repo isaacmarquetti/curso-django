@@ -1,5 +1,6 @@
 # curso-django
 
+
 Código desenvolvido no módulo do Django do www.python.pro.br
 
 Aplicação disponível em https://curso-djangoapp.herokuapp.com/
